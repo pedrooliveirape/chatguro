@@ -1,8 +1,8 @@
-from horoscopo import horoscopo_dia, horoscopo_semana, verificar_ascendente
+from lib.horoscopo import horoscopo_dia, horoscopo_semana, verificar_ascendente
 from lib.interface import menu, cabecalho
-import classes
 from time import sleep
 from datetime import datetime
+from lib.classes import Usuario
 
 cabecalho('HORÓSCOPO', 54)
 nome = str(input('Digite seu nome: '))
@@ -15,7 +15,7 @@ while True:
         print('\033[31mERRO!\033[m \033[33mDigite a data no formato dd/mm/aaaa (Ex: 01/01/1900).\033[m')
 
 data_nascimento = data_nascimento.strftime('%d/%m/%Y').split('/')
-usuario = classes.Usuario(nome, int(data_nascimento[0]), int(data_nascimento[1]), int(data_nascimento[2]))
+usuario = Usuario(nome, int(data_nascimento[0]), int(data_nascimento[1]), int(data_nascimento[2]))
 signo = usuario.signo
 
 while True:
